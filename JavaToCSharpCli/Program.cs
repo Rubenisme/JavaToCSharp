@@ -34,7 +34,7 @@ namespace JavaToCSharpCli
             if (filePaths.Any())
             {
                 var options = new JavaConversionOptions();
-                var inOutPairs = filePaths.ToDictionary(fileIn => fileIn, fileIn => $"{fileIn.Replace(inputInfo.FullName, outputInfo.FullName)}.cs");
+                var inOutPairs = filePaths.ToDictionary(fileIn => fileIn, fileIn => fileIn.Replace(inputInfo.FullName, outputInfo.FullName).Replace(".java", ".cs"));
                 WriteAllFiles(inOutPairs, options);
             }
 
